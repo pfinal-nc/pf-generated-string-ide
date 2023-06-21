@@ -48,12 +48,12 @@
   <depends>com.intellij.modules.lang</depends>
   <depends>com.intellij.modules.platform</depends>
   <actions>
+    <action id="GenerateAction" class="GenerateUserInfoAction" text="PF-生成随机用户信息" description="生成随机用户信息">
+      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+    </action>
     <action id="RepeatAction" class="RepeatStringAction" text="PF-重复指定字符串" description="按照个数重复指定字符串">
       <add-to-group group-id="EditorPopupMenu" anchor="first"/>
       <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta C"/>
-    </action>
-    <action id="GenerateAction" class="GenerateUserInfoAction" text="PF-生成随机用户信息" description="生成随机用户信息">
-      <add-to-group group-id="EditorPopupMenu" anchor="last"/>
     </action>
   </actions>
   <!-- Extension points defined by the plugin.

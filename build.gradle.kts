@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "cn.pfinal.club"
-version = "1.0.1"
+version = "1.0.1-SNAPSHOT"
 
 repositories {
   mavenCentral()
@@ -31,7 +31,7 @@ tasks {
   }
 
   patchPluginXml {
-    sinceBuild.set("222")
+    sinceBuild.set("201.*")
     untilBuild.set("232.*")
   }
 
