@@ -1,31 +1,38 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-  <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
-  <id>cn.pfinal.club.pf-generated-string</id>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>cn.pfinal.club.pf-generated-string</id>
 
-  <!-- Public plugin name should be written in Title Case.
-       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
-  <name>PF-Generated-String</name>
-<!--  <version>0.0.1</version>&lt;!&ndash;插件版本号 &ndash;&gt;-->
-  <version>1.0.1</version><!--插件版本号 -->
-  <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-  <vendor email="lampxiezi@163.com" url="https://friday-go.icu">PFinal南丞</vendor>
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>PF-Generated-String</name>
+    <!--  <version>0.0.1</version>&lt;!&ndash;插件版本号 &ndash;&gt;-->
+    <version>1.0.2</version><!--插件版本号 -->
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="lampxiezi@163.com" url="https://friday-go.icu">PFinal南丞</vendor>
 
-  <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-       Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-       Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-  <description><![CDATA[
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
         <h1>PF-Generated-String</h1>
         <br/>
         <p><b>A handy string repetition plugin</b></p>
         <p>For example, typing #*10 can be quickly generated ########## </p>
+        <p>For more information, please visit the jetbrains plugin market</p>
         <br/>
   ]]></description>
-  <!--插件版本变更日志，支持HTML标签 -->
-  <change-notes>
-    <![CDATA[
+    <!--插件版本变更日志，支持HTML标签 -->
+    <change-notes>
+        <![CDATA[
         <h2>PF-Generated-String / snippets</h2>
           <ul>
+          <li>V - 1.0.2 init</li>
+            <li>
+              <ul>
+                <li>- 增加获取当前时间戳功能</li>
+              </ul>
+            </li>
             <li>V - 1.0.1 init</li>
             <li>
               <ul>
@@ -41,24 +48,36 @@
             </li>
           </ul>
             ]]>
-  </change-notes>
-  <idea-version since-build="201"/>
-  <!-- Product and plugin compatibility requirements.
-       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
-  <depends>com.intellij.modules.lang</depends>
-  <depends>com.intellij.modules.platform</depends>
-  <actions>
-    <action id="GenerateAction" class="GenerateUserInfoAction" text="PF-生成随机用户信息" description="生成随机用户信息">
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-    </action>
-    <action id="RepeatAction" class="RepeatStringAction" text="PF-重复指定字符串" description="按照个数重复指定字符串">
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta C"/>
-    </action>
-  </actions>
-  <!-- Extension points defined by the plugin.
-       Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
-  <extensions defaultExtensionNs="com.intellij">
+    </change-notes>
+    <idea-version since-build="201"/>
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
+    <actions>
+        <action id="GenerateAction" class="GenerateUserInfoAction" text="PF-生成随机用户信息"
+                description="生成随机用户信息">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="RepeatAction" class="RepeatStringAction" text="PF-重复指定字符串"
+                description="按照个数重复指定字符串">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta C"/>
+        </action>
+        <group id="TimeActionGroup" text="PF-时间转换" popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action id="PF-Time" class="CurrentTimestampAction" text="当前时间戳" description="PF-获取当前时间戳" >
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta T"/>
+            </action>
+            <action id="PF-Date" class="CurrentDateAction" text="当前日期" description="PF-获取当前日期">
+                <keyboard-shortcut keymap="$default" first-keystroke="ctrl meta D"/>
+            </action>
+        </group>
 
-  </extensions>
+    </actions>
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
 </idea-plugin>
